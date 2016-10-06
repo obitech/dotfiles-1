@@ -40,32 +40,32 @@ brew install homebrew/dupes/screen
 
 
 # run this script when this file changes guy.
-brew install entr
+#vbrew install entr
 
 # github util. imho better than hub
-brew install gh
+#vbrew install gh
 
 
 # mtr - ping & traceroute. best.
-brew install mtr
+#brew install mtr
 
     # allow mtr to run without sudo
-    mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//') #  e.g. `/Users/paulirish/.homebrew/Cellar/mtr/0.86`
-    sudo chmod 4755 $mtrlocation/sbin/mtr
-    sudo chown root $mtrlocation/sbin/mtr
+#    mtrlocation=$(brew info mtr | grep Cellar | sed -e 's/ (.*//') #  e.g. `/Users/paulirish/.homebrew/Cellar/mtr/0.86`
+#    sudo chmod 4755 $mtrlocation/sbin/mtr
+#    sudo chown root $mtrlocation/sbin/mtr
 
 
 # Install other useful binaries
-brew install the_silver_searcher
-brew install fzf
+#brew install the_silver_searcher
+#brew install fzf
 
 brew install git
 brew install imagemagick --with-webp
 brew install node # This installs `npm` too using the recommended installation method
-brew install pv
+#brew install pv
 brew install rename
 brew install tree
-brew install zopfli
+#brew install zopfli
 brew install ffmpeg --with-libvpx
 
 brew install terminal-notifier
@@ -73,7 +73,7 @@ brew install terminal-notifier
 brew install android-platform-tools
 brew install pidcat   # colored logcat guy
 
-brew install zsh
+#brew install zsh
 
 # Remove outdated versions from the cellar
 brew cleanup

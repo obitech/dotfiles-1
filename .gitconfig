@@ -54,25 +54,25 @@
 	tool = opendiff
 
 # rewrites of repo paths
-[url "git@github.com:"]
-	insteadOf = "gh:"
-	insteadOf = "git://github.com"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-    pushInsteadOf = "https://github.com/"
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-	pushInsteadOf = "https://gist.github.com/"
+# [url "git@github.com:"]
+#	insteadOf = "gh:"
+#	insteadOf = "git://github.com"
+#	pushInsteadOf = "github:"
+#	pushInsteadOf = "git://github.com/"
+#    pushInsteadOf = "https://github.com/"
+# [url "git@gist.github.com:"]
+#	insteadOf = "gst:"
+#	pushInsteadOf = "gist:"
+#	pushInsteadOf = "git://gist.github.com/"
+#	pushInsteadOf = "https://gist.github.com/"
 
 # correct typos
-[help]
-	autocorrect = 1
+# [help]
+#	autocorrect = 1
 
 # push easily. http://stackoverflow.com/a/23918418/89484
-[push]
-	default = current
+# [push]
+#	default = current
 
 # use separate file for username / github token / etc
 [include]
@@ -81,12 +81,12 @@
 [init]
 	templatedir = ~/.git_template
 
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+#[filter "lfs"]
+#	clean = git-lfs clean %f
+#	smudge = git-lfs smudge %f
+#	required = true
 
-[fetch]
-	prune = true
-[diff]
+# [fetch]
+#	prune = true
+ [diff]
 	compactionHeuristic = true
