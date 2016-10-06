@@ -90,3 +90,6 @@
 #	prune = true
  [diff]
 	compactionHeuristic = true
+[user]
+	name = moismailzai
+	email = moismailzai@gmail.com
