@@ -2,7 +2,7 @@
 # Load our dotfiles like ~/.bash_prompt, etc…
 #   ~/.extra can be used for settings you don’t want to commit,
 #   Use it to configure your PATH, thus it being first in line.
-for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
+for file in ~/.{extra,bash_prompt,exports,aliases}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
@@ -48,7 +48,6 @@ type shopt &> /dev/null && shopt -s histappend  # append to history, don't overw
 
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
 # ^ the only downside with this is [up] on the readline will go over all history not just this bash session.
 
 
@@ -78,17 +77,16 @@ if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
 fi;
 
 # bash completion.
-if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-    source "$(brew --prefix)/share/bash-completion/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-    source /etc/bash_completion;
-fi;
+#if  which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+#    source "$(brew --prefix)/share/bash-completion/bash_completion";
+#elif [ -f /etc/bash_completion ]; then
+#    source /etc/bash_completion;
+#fi;
 
 # homebrew completion
 if  which brew > /dev/null; then
     source "$(brew --prefix)/etc/bash_completion.d/brew"
 fi;
-
 # hub completion
 if  which hub > /dev/null; then
     source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
