@@ -135,3 +135,5 @@ main() {
 
 main
 execute "ln -fs $(pwd)/.ssh/config $HOME/.ssh/config" "$HOME/.ssh/config → $(pwd)/.ssh/config"
+[[ -d $HOME/.ssh/control ]] || mkdir $HOME/.ssh/control
+
