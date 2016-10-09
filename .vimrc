@@ -36,7 +36,8 @@ set esckeys " Allow cursor keys in insert mode
 set expandtab " Expand tabs to spaces
 set foldcolumn=0 " Column to show folds
 set foldenable " Enable folding
-set foldlevel=0 " Close all folds by default
+" set foldlevel=0 " Close all folds by default
+set nofoldenable    " disable folding
 set foldmethod=syntax " Syntax are used to specify folds
 set foldminlines=0 " Allow folding single lines
 set foldnestmax=5 " Set max fold nesting level
@@ -237,13 +238,6 @@ augroup general_config
   imap <PageUp> <C-O><C-U>
   imap <PageDown> <C-O><C-D>
   " }}}
-
-  " Relative numbers {{{
-  set relativenumber " Use relative line numbers. Current line is still in status bar.
-  au BufReadPost,BufNewFile * set relativenumber
-  " }}}
-augroup END
-" }}}
 
 " NERD Commenter {{{
 augroup nerd_commenter
