@@ -1,7 +1,7 @@
 # This prompt inspired by gf3, sindresorhus, alrra, and mathiasbynens.
 # but customized to me. <3
 
-default_username=''
+default_username='vagrant'
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
     export TERM=gnome-256color
@@ -61,6 +61,7 @@ set_prompts() {
     }
 
     function prompt_git() {
+        return
         git rev-parse --is-inside-work-tree &>/dev/null || return
 
         branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
