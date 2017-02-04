@@ -4,6 +4,16 @@ for file in ~/.{extra,bash_prompt,exports,aliases}; do
 done
 unset file
 
+# Bash autocompletion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Prompt fix for Gnome
+if [ -z "$COLORTERM" ] && cat /proc/$PPID/exe 2> /dev/null | grep -q gnome-terminal; then
+     export COLORTERM=gnome-terminal
+fi
+
 # to help sublimelinter etc with finding my PATHS
 case $- in
    *i*) source ~/.extra
@@ -28,5 +38,3 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
-# Autocorrect typos in path names when using `cd`
-#shopt -s cdspell;
