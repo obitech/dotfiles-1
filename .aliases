@@ -14,18 +14,6 @@ alias rm='rm -v'
 alias cp='cp -v'
 ################################################################################
 
-#### ls ########################################################################
-# prefer coreutils `ls`
-hash gls >/dev/null 2>&1 || alias gls="ls"
-# pipe colors
-if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; fi;
-export CLICOLOR_FORCE=1
-# A = include hidden (but not . or ..), h = byte unit suffixes
-alias ls='gls -Ah ${colorflag} --group-directories-first'
-# only directories
-alias lsd='ls -l | grep "^d"'
-################################################################################
-
 #### git #######################################################################
 function clone() {
     git clone --depth=1 $1
@@ -40,19 +28,5 @@ alias gitroot='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-
 ################################################################################
 
 #### Misc ######################################################################
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias wget="curl -O"
-alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 alias fs="stat -f \"%z bytes\""
-# `cat` with colors (requires: sudo easy_install -U Pygments)
-alias catt='pygmentize -O style=monokai -f console256 -g'
-alias emptytrash=" \
-    sudo rm -rfv /Volumes/*/.Trashes; \
-    rm -rfv ~/.Trash/*; \
-    sudo rm -v /private/var/vm/sleepimage; \
-    rm -rv \"/Users/mo/Library/Application Support/stremio/Cache\";  \
-    rm -rv \"/Users/mo/Library/Application Support/stremio/stremio-cache\" \
-"
-alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
-alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
-################################################################################
+alis ls="ls -a"

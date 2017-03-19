@@ -5,8 +5,8 @@ done
 unset file
 
 # Bash autocompletion
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+if [ -f /usr/share/bash_completion ]; then
+  . /usr/share/bash_completion
 fi
 
 # Prompt fix for Gnome
