@@ -29,4 +29,4 @@ alias gitroot='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-
 
 #### Misc ######################################################################
 alias fs="stat -f \"%z bytes\""
-alis ls="ls -a"
+alias ls="ls -a"
