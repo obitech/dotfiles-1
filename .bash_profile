@@ -1,3 +1,13 @@
+# Load rbenv automatically  
+eval "$(rbenv init -)"
+
+# Load phpbrew
+if [[ -e ~/.phpbrew/bashrc ]]; then
+	export PHPBREW_SET_PROMPT=1
+	export PHPBREW_RC_ENABLE=1
+	source ~/.phpbrew/bashrc
+fi
+
 # Source all .dot files, starting with .extra, which shouldn't be committed
 for file in ~/.{extra,bash_prompt,exports,aliases}; do
     [ -r "$file" ] && source "$file"
@@ -28,13 +38,24 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-# realtime bash_history, with timestamps
-export HISTTIMEFORMAT='%F %T '
-export HISTCONTROL=ignoredups:erasedups         # no duplicate entries
-export HISTSIZE=100000                          # big big history (default is 500)
-export HISTFILESIZE=$HISTSIZE                   # big big history
-type shopt &> /dev/null && shopt -s histappend  # append to history, don't overwrite it
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+HISTSIZE=9000
+HISTFILESIZE=$HISTSIZE
+HISTCONTROL=ignorespace:ignoredups
+
+_bash_history_sync() {
+  builtin history -a         #1
+  HISTFILESIZE=$HISTSIZE     #2
+  builtin history -c         #3
+  builtin history -r         #4
+}
+
+history() {                  #5
+  _bash_history_sync
+  builtin history "$@"
+}
+
+PROMPT_COMMAND=_bash_history_sync
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob;
