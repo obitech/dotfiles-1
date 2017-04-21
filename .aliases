@@ -28,9 +28,7 @@ alias gitroot='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-
 ################################################################################
 
 #### Misc ######################################################################
-alias fs="stat -f \"%z bytes\""
 # pipe colors
-if gls --color > /dev/null 2>&1; then colorflag="--color"; else colorflag="-G"; fi;
 export CLICOLOR_FORCE=1
 # A = include hidden (but not . or ..), h = byte unit suffixes
 alias ls='ls -Ah --color --group-directories-first'
